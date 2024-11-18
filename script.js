@@ -1,18 +1,27 @@
-//- il prezzo del biglietto è definito in base ai km (0.21 € al km)
-//- va applicato uno sconto del 20% per i minorenni
-//- va applicato uno sconto del 40% per gli over 65.
+const prezzoPerKm = 0.21;
+const minorenniSconto = 20;
+const overSconto = 40;
+const overLimite = 65
 
-/*const prezzoPerKm = 0.21;
-const minorenni = 20;
-const over = 40;
-*/
+let message, price;
 
-const parola = 'ciao'
+const age = parseInt(prompt('Quanti anni hai?'));
+const km = parseInt(prompt('Quanti Km devi percorrere?'));
 
-if(parola == 'ciao'){
-  console.log('la parola è giusta');
+price = km * prezzoPerKm;
+
+if (age < 18) {
+  price -= price * minorenniSconto / 100;
+  message = `Sei minorenne quindi hai lo scondo del ${minorenniSconto}%!
+  Il prezzo del tuo biglietto è di ${price.toFixed(2)}
+  `
+} else if (age >= overSconto) {
+  price -= price * overSconto / 100;
+  message = `Hai più di ${overLimite} anni quindi hai lo sconto del ${overSconto}%!
+  Il prezzo del tuo biglietto è di € ${price.toFixed(2)}
+  `
 } else {
-  console.log('la parola NON è giusta');
+  message = `Il prezzo del tuo biglietto è di € ${price}`
 }
 
-console.log('sono dopo l\'if');
+console.log(message);
