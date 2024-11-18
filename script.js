@@ -1,21 +1,18 @@
-function calcolaPrezzoBiglietto(km, eta) {
-  const prezzoPerKm = 0.21;
-  let prezzoTotale = km * prezzoPerKm;
+//- il prezzo del biglietto è definito in base ai km (0.21 € al km)
+//- va applicato uno sconto del 20% per i minorenni
+//- va applicato uno sconto del 40% per gli over 65.
 
-  if (eta < 18) {
-      prezzoTotale *= 0.8; // Sconto del 20% per i minorenni
-  } else if (eta > 65) {
-      prezzoTotale *= 0.6; // Sconto del 40% per gli over 65
-  }
+/*const prezzoPerKm = 0.21;
+const minorenni = 20;
+const over = 40;
+*/
 
-  prezzoTotale = prezzoTotale.toFixed(2);
+const parola = 'ciao'
 
-  return prezzoTotale;
+if(parola == 'ciao'){
+  console.log('la parola è giusta');
+} else {
+  console.log('la parola NON è giusta');
 }
 
-const km = prompt("Quanti chilometri vuoi percorrere?");
-const eta = prompt("Quanti anni ha il passeggero?");
-
-const prezzoFinale = calcolaPrezzoBiglietto(km, eta);
-
-console.log(`Il prezzo totale del viaggio è: €${prezzoFinale}`);
+console.log('sono dopo l\'if');
